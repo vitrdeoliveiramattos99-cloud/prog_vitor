@@ -17,7 +17,4 @@ int main(){
     printf("Nome: %s\n", a1.nome);
     printf("Idade: %d\n", a1.idade);
     printf("Altura: %.2f\n", a1.altura);
-
-
 }
-
