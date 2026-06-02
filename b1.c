@@ -18,11 +18,13 @@ int main(){
 
     Alunos alunos[n];
 
-    for(int i = 0; i > n; i ++){
+    for (int i = 0; i < n; i ++){
         printf("Qual o nome do aluno?\n");
         scanf("%s", alunos[i].nome);
+
         printf("Qual a nota dele?\n");
         scanf("%f", &alunos[i].nota);
+
         total = total + alunos[i].nota;
         if(alunos[i].nota >= 7.0){
             aprovados++;
@@ -32,5 +34,6 @@ int main(){
    media = total / n;
 
    printf("Tabela  da turma:\n");
-   printf("")
+   printf("A media da turma foi: %.2f\n", media);
+   printf("Quantidade de aprovados: %d\n", aprovados);
 }
