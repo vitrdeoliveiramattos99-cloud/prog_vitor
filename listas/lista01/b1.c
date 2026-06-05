@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Definimos um tamanho fixo máximo para o vetor que o compilador aceite
+// Defini um tamanho fixo máximo para o vetor que o compilador aceite, pq ele não estava acietando
 #define MAX_ALUNOS 100
 
 typedef struct {
@@ -27,7 +27,6 @@ int main() {
     // SOLUÇÃO DO ERRO: Agora o compilador sabe o tamanho exato na compilação
     Aluno turma[MAX_ALUNOS];
 
-    // Loop de leitura
     for (int i = 0; i < n; i++) {
         printf("Qual o nome do aluno %d?\n", i + 1);
         scanf("%s", turma[i].nome);
@@ -44,7 +43,6 @@ int main() {
 
     media = soma / n;
 
-    // Exibição dos dados
     printf("\n\n================================");
     printf("\n       TABELA DE ALUNOS         ");
     printf("\n================================\n");
@@ -52,7 +50,6 @@ int main() {
     printf("--------------------------------\n");
     
     for (int i = 0; i < n; i++) {
-        // SOLUÇÃO DO ERRO DA LINHA 40: Especificando corretamente turma[i].nome e turma[i].nota
         printf("%-20s | %.2f\n", turma[i].nome, turma[i].nota);
     }
     printf("--------------------------------\n");
