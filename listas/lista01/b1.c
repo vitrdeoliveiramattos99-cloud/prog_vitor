@@ -18,20 +18,14 @@ int main() {
     printf("Quantos alunos tem na turma? (Maximo %d):\n", MAX_ALUNOS);
     scanf("%d", &n);
 
-    // Validação para garantir que o usuário não digite algo inválido
-    if (n <= 0 || n > MAX_ALUNOS) {
-        printf("Quantidade invalida! Digite um valor entre 1 e %d.\n", MAX_ALUNOS);
-        return 1;
-    }
-
     // SOLUÇÃO DO ERRO: Agora o compilador sabe o tamanho exato na compilação
     Aluno turma[MAX_ALUNOS];
 
     for (int i = 0; i < n; i++) {
-        printf("Qual o nome do aluno %d?\n", i + 1);
+        printf("Qual o nome do aluno %d?\n", i++);
         scanf("%s", turma[i].nome);
 
-        printf("Qual a nota dele?\n", i + 1);
+        printf("Qual a nota dele?\n", i++);
         scanf("%f", &turma[i].nota);
         
         soma = soma + turma[i].nota;
