@@ -1,0 +1,72 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct{
+    char nome[50];
+    float preco;
+    int quant;
+} Produto;
+
+int main(){
+
+int n;
+float valor_total_produto;
+float valor_geral = 0;
+float maior_valor = -1.0;
+char nome_maior_produto[50];
+float menor_valor_unitario = 9999.0;
+char nome_menor_produto[50];
+
+
+printf("Quantos produtos tem no estoque?\n");
+scanf("%d", &n);
+
+Produto estoque[n];
+
+for(int i = 0; i < n; i++){
+    printf("Qual o nome do produto?\n");
+    scanf(" %[^\n]", estoque[i].nome);
+
+    printf("Preço uitario: ");
+    scanf("%f", &estoque[i].preco);
+
+    printf("quantidade em estoque: ");
+    scanf("%d", &estoque[i].quant);
+
+    valor_total_produto = estoque[i].preco * estoque[i].quant;
+    valor_geral += valor_total_produto;
+
+    if (valor_total_produto > maior_valor){
+         maior_valor = valor_total_produto;
+         strcpy(nome_maior_produto, estoque[i].nome);
+    }
+
+    if (estoque[i].preco < menor_valor_unitario) {
+        menor_valor_unitario = estoque[i].preco;
+        strcpy(nome_menor_produto, estoque[i].nome);
+    }
+}
+
+    printf("\n\n=======================================================");
+    printf("\n                  RELATORIO DE ESTOQUE                 ");
+    printf("\n=======================================================\n");
+    printf("%-20s | %-10s | %-10s | %s\n", "Produto", "Preco", "Quantidade", "Total Item");
+    printf("-------------------------------------------------------\n");
+    
+    for (int i = 0; i < n; i++) {
+        float total_item = estoque[i].preco * estoque[i].quant;
+        printf("%-20s | R$ %-7.2f | %-10d | R$ %.2f\n", 
+               estoque[i].nome, 
+               estoque[i].preco, 
+               estoque[i].quant, 
+               total_item);
+    }
+    printf("-------------------------------------------------------\n");
+
+    
+    printf("Valor Total Geral em Estoque: R$ %.2f\n", valor_geral);
+    printf("Produto com Maior Valor: %s (R$ %.2f em estoque)\n", nome_maior_produto, maior_valor);
+    printf("Produto com Menor Valor Unitário: %s (R$ %.2f)\n", nome_menor_produto, menor_valor_unitario);
+
+    return 0;
+}
