@@ -7,12 +7,20 @@ Escreva sua solucao no lugar do 'pass'.
 
 def soma_lista(lista):
     """Devolve a soma de todos os numeros da lista. Lista vazia devolve 0."""
-    pass
+   soma = 0
+    for n in lista:
+        soma = soma + n
 
+    return soma
 
 def conta_pares(lista):
     """Devolve quantos numeros da lista sao pares."""
-    pass
+     quantPar = 0
+    for i in lista
+        if lista[i] % 2 == 0
+            quantPar += 1
+
+    return quantPar
 
 
 def maior_valor(lista):
