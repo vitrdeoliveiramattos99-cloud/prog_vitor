@@ -15,9 +15,9 @@ def soma_lista(lista):
 
 def conta_pares(lista):
     """Devolve quantos numeros da lista sao pares."""
-     quantPar = 0
-    for i in lista
-        if lista[i] % 2 == 0
+    quantPar = 0
+    for i in lista:
+        if lista[i] % 2 == 0:
             quantPar += 1
 
     return quantPar
@@ -27,7 +27,7 @@ def maior_valor(lista):
     """Devolve o maior numero da lista. A lista nao esta vazia."""
     maior = lista[0]
 
-    for i in lista[1:]
+    for i in lista[1:]:
         if maior < i:
             maior = i
 
