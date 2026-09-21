@@ -20,6 +20,7 @@ def inverte(lista):
     Sem usar reverse() e sem usar [::-1]."""
     lista_invertida = []
     i = len(lista)-1
+
     while i >= 0:
         lista_invertida.append(lista(i))
 
@@ -28,16 +29,41 @@ def inverte(lista):
 
 def busca_binaria(lista, alvo):
     """Recebe uma lista JA ORDENADA. Devolve a posicao do alvo, ou -1."""
-    pass
+    ini = 0
+    fim = len(lista) -1
+    meio = (ini + fim) // 2
+
+    while ini <= fim:
+        if lista[meio] == alvo:
+            return meio
+        elif lista[meio] < alvo:
+            ini = meio + 1
+        elif lista[meio] > alvo:
+            fim = meio -1
+
+    return -1   
+        
 
 
 def intercala(lista_a, lista_b):
     """Devolve uma lista nova alternando os elementos das duas.
     As duas listas tem o mesmo tamanho."""
-    pass
+    lista_c = []
+
+    for i in range(len(lista_a)):
+        lista_c.append(lista(i))
+        lista_c.append(lista(i))
+
+    return lista_c
 
 
 def remove_repetidos(lista):
     """(Desafio) Devolve uma lista nova sem repetidos,
     mantendo a ordem da primeira aparicao."""
-    pass
+    lista_nova = []
+
+    for i in lista:
+        if i not in lista_nova:
+            lista_nova.append(i)
+
+    return lista_nova
