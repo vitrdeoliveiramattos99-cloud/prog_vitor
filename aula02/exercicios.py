@@ -7,13 +7,23 @@ Escreva sua solucao no lugar do 'pass'.
 
 def remove_negativos(lista):
     """Devolve uma lista nova so com os numeros que nao sao negativos."""
-    pass
+    sem_negativos = []
+    for i in lista:
+        if i > 0:
+            sem_negativos.append(i)
+
+    return sem_negativos
 
 
 def inverte(lista):
     """Devolve uma lista nova na ordem contraria.
     Sem usar reverse() e sem usar [::-1]."""
-    pass
+    lista_invertida = []
+    i = len(lista)-1
+    while i >= 0:
+        lista_invertida.append(lista(i))
+
+    return lista_invertida
 
 
 def busca_binaria(lista, alvo):
