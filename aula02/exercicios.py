@@ -9,7 +9,7 @@ def remove_negativos(lista):
     """Devolve uma lista nova so com os numeros que nao sao negativos."""
     sem_negativos = []
     for i in lista:
-        if i > 0:
+        if i >= 0:
             sem_negativos.append(i)
 
     return sem_negativos
@@ -22,7 +22,7 @@ def inverte(lista):
     i = len(lista)-1
 
     while i >= 0:
-        lista_invertida.append(lista(i))
+        lista_invertida.append(lista[i])
 
     return lista_invertida
 
@@ -51,8 +51,8 @@ def intercala(lista_a, lista_b):
     lista_c = []
 
     for i in range(len(lista_a)):
-        lista_c.append(lista(i))
-        lista_c.append(lista(i))
+        lista_c.append(lista[i])
+        lista_c.append(lista[i])
 
     return lista_c
 

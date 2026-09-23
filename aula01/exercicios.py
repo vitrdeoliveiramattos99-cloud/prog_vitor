@@ -17,7 +17,7 @@ def conta_pares(lista):
     """Devolve quantos numeros da lista sao pares."""
     quantPar = 0
     for i in lista:
-        if lista[i] % 2 == 0:
+        if i % 2 == 0:
             quantPar += 1
 
     return quantPar
@@ -56,11 +56,13 @@ def segundo_maior(lista):
     """(Desafio) Devolve o segundo maior, percorrendo a lista uma unica vez."""
     maior = lista[0]
     segundo_maior = lista[1]
+    temp = 0
     if segundo_maior > maior:
+        temp = maior
         maior = segundo_maior
-        segundo_maior = maior
+        segundo_maior = temp
 
-    for i in lista:
+    for i in lista[2:]:
         if i > maior:
             segundo_maior = maior
             maior = i
