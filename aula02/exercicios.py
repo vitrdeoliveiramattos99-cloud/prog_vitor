@@ -28,20 +28,21 @@ def inverte(lista):
 
 
 def busca_binaria(lista, alvo):
-    """Recebe uma lista JA ORDENADA. Devolve a posicao do alvo, ou -1."""
-    ini = 0
-    fim = len(lista) -1
-    meio = (ini + fim) // 2
+  """Recebe uma lista JA ORDENADA. Devolve a posicao do alvo, ou -1."""
+  ini = 0
+  fim = len(lista) - 1
 
-    while ini <= fim:
-        if lista[meio] == alvo:
-            return meio
-        elif lista[meio] < alvo:
-            ini = meio + 1
-        elif lista[meio] > alvo:
-            fim = meio -1
+  while ini <= fim:
+    meio = (ini + fim) // 2  # <--- Movido para dentro do while
+    if lista[meio] == alvo:
+      return meio
+    elif lista[meio] < alvo:
+      ini = meio + 1
+    elif lista[meio] > alvo:
+      fim = meio - 1
 
-    return -1   
+  return -1
+
         
 
 
