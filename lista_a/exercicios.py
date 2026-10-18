@@ -137,32 +137,64 @@ def busca_binaria_primeira(lista, alvo):
 
 def soma_pares_contando(lista):
     """(soma_dos_pares, operacoes). Conte 1 por elemento examinado."""
-    pass
+    soma = 0
+    operacoes = 0
+
+    for n in lista:
+        operacoes = operacoes + 1
+        if n % 2 == 0:
+            soma = soma + n
+
+    return soma, operacoes
 
 
 def maior_contando(lista):
     """(maior, comparacoes). Lista nao vazia.
     Conte 1 comparacao por elemento a partir do segundo."""
-    pass
+    maior = lista[0]
+    comparacoes = 0
+
+    for i in range(len(lista)):
+        comparacoes = comparacoes + 1
+        if lista[i] > maior:
+            maior = lista[i]
+
+    return maior, comparacoes
 
 
 def tem_soma_contando(lista, alvo):
     """(True/False, comparacoes). Existem dois elementos que somam alvo?
     Conte 1 por par comparado. Pare assim que achar."""
-    pass
+    comparacoes = 0
+    for i in range(len(lista)):
+        for j in range(i + 1, len(lista)):
+            comparacoes = comparacoes + 1
+            if lista[i] + lista[j] == alvo:
+                return True, comparacoes
+
+    return False, comparacoes
+
 
 
 def ordenada_contando(lista):
     """(Desafio) (True/False, comparacoes). A lista esta em ordem crescente?
     Conte 1 por par de vizinhos comparado. Pare no primeiro fora de ordem."""
-    pass
+    comparacoes = 0
+
+    for i in range(len(lista) - 1):
+        comparacoes += 1
+        if lista[i] > lista[i + 1]:
+            return False, comparacoes
+
+    return True, comparacoes
+
 
 
 # ---------- Bloco 4: padroes ----------
 
 def inverte_no_lugar(lista):
     """Inverte a PROPRIA lista recebida. NAO cria lista nova e NAO devolve nada."""
-    pass
+    
 
 
 def eh_palindromo(lista):
