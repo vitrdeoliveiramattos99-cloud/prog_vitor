@@ -84,23 +84,53 @@ def achata(lista_de_listas):
 
 def busca_ultima(lista, alvo):
     """ULTIMA posicao do alvo, ou -1."""
-    pass
+    posicao = -1
+    for i in range(len(lista)):
+        if lista[i] == alvo:
+            posicao = i
+
+    return posicao
 
 
 def conta_ocorrencias(lista, alvo):
     """Quantas vezes o alvo aparece."""
-    pass
+    total = 0
+    for n in lista:
+        if n == alvo:
+            total = total + 1
+
+    return total
 
 
 def primeiro_maior_que(lista, limite):
     """Posicao do primeiro elemento maior que limite, ou -1."""
-    pass
+    for i in range(len(lista)):
+        if lista[i] > limite:
+            return i
+
+    return -1
 
 
 def busca_binaria_primeira(lista, alvo):
     """(Desafio) Lista JA ORDENADA, o alvo pode repetir.
     Devolve a PRIMEIRA posicao do alvo, ou -1. Sem percorrer tudo."""
-    pass
+    ini = 0
+    fim = len(lista) - 1
+    posicao = -1
+
+    while ini <= fim:
+       meio = (ini + fim) // 2 
+       if lista[meio] == alvo:
+            posicao = meio
+            fim = meio -1
+       elif lista[meio] < alvo:
+            ini = meio + 1
+       elif lista[meio] > alvo:
+            fim = meio - 1
+   
+    return posicao
+   
+
 
 
 # ---------- Bloco 3: custo ----------
