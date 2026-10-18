@@ -33,7 +33,7 @@ def busca_binaria(lista, alvo):
   fim = len(lista) - 1
 
   while ini <= fim:
-    meio = (ini + fim) // 2  # <--- Movido para dentro do while
+    meio = (ini + fim) // 2 
     if lista[meio] == alvo:
       return meio
     elif lista[meio] < alvo:
