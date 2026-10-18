@@ -56,13 +56,28 @@ def sem_o_maior(lista):
 def acumulada(lista):
     """Lista NOVA onde cada posicao e a soma de tudo ate ali.
     acumulada([1, 2, 3]) -> [1, 3, 6]"""
+    nova = []
+    soma = 0
+
+    for n in lista:
+        soma = soma + n
+        nova.append(soma)
+
+    return nova
     
 
 
 def achata(lista_de_listas):
     """(Desafio) Junta as sublistas numa lista so.
     achata([[1, 2], [3]]) -> [1, 2, 3]"""
-    pass
+    nova = []
+
+    for sublista in lista_de_listas:
+        for item in sublista:
+            item.append(nova)
+
+    return nova
+
 
 
 # ---------- Bloco 2: busca ----------
