@@ -74,7 +74,7 @@ def achata(lista_de_listas):
 
     for sublista in lista_de_listas:
         for item in sublista:
-            item.append(nova)
+            nova.append(item)
 
     return nova
 
@@ -154,7 +154,7 @@ def maior_contando(lista):
     maior = lista[0]
     comparacoes = 0
 
-    for i in range(len(lista)):
+    for i in range(1, len(lista)):
         comparacoes = comparacoes + 1
         if lista[i] > maior:
             maior = lista[i]
@@ -181,7 +181,7 @@ def ordenada_contando(lista):
     Conte 1 por par de vizinhos comparado. Pare no primeiro fora de ordem."""
     comparacoes = 0
 
-    for i in range(len(lista) - 1):
+    for i in range(len(lista) -1):
         comparacoes += 1
         if lista[i] > lista[i + 1]:
             return False, comparacoes
@@ -194,26 +194,83 @@ def ordenada_contando(lista):
 
 def inverte_no_lugar(lista):
     """Inverte a PROPRIA lista recebida. NAO cria lista nova e NAO devolve nada."""
-    
+    ini = 0
+    fim = len(lista) -1
+
+    while ini < fim:
+        lista[ini], lista[fim] = lista[fim], lista[ini]
+        ini = ini + 1
+        fim = fim - 1
 
 
 def eh_palindromo(lista):
     """True se a lista e igual lida de tras para frente."""
-    pass
+    ini = 0
+    fim = len(lista) -1
+
+    while ini < fim:
+        if lista[ini] != lista[fim]:
+            return False
+        
+        ini = ini + 1
+        fim = fim - 1
+
+    return True
+
 
 
 def par_que_soma(lista, alvo):
     """Lista JA ORDENADA. Devolve (i, j) das posicoes cujos valores somam alvo,
     ou (-1, -1). Sem laco dentro de laco."""
-    pass
+    ini = 0
+    fim = len(lista) -1
+
+    while ini < fim:
+        soma = lista[ini] + lista[fim]
+
+        if soma == alvo:
+            return ini, fim
+        elif soma < alvo:
+            ini = ini + 1
+        else:
+            fim = fim - 1
+
+    return -1, -1
 
 
 def soma_maxima_janela(lista, k):
     """Maior soma de k elementos seguidos.
     soma_maxima_janela([1, 2, 3, 4], 2) -> 7"""
-    pass
+    if not lista or k > len(lista):
+        return 0
+    
+    soma = 0
+    for i in range(k):
+    soma = soma + lista[i]
+    melhor = soma
+
+    for i in lista[k:]:
+        soma = soma + lista[i] - lista[i - k]
+
+        if soma > melhor:
+            melhor = soma
+
+    return melhor
+
 
 
 def parenteses_balanceados(texto):
     """(Desafio) True se os ( ) e [ ] do texto abrem e fecham na ordem certa."""
-    pass
+    pilha = []
+
+    for char in texto:
+        if char == '(' or char == '[':
+            pilha.append(char)
+        elif char == ')':
+            if not pilha or pilha.pop() != '(':
+                return False
+        elif char == ']':
+            if not pilha or pilha.pop() != '[':
+                return False
+
+    return len(pilha) == 0
