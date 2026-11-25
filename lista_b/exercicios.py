@@ -14,21 +14,48 @@ o mesmo contrato da aula05.
 def passagem_bubble(lista):
     """Uma unica passagem completa da esquerda para a direita, trocando
     vizinhos fora de ordem. Devolve uma copia; nao altera a entrada."""
-    pass
+    for i in range(n - 1):
+        if lista[i] > lista[i + 1]:
+            lista[i], lista[i + 1] = lista[i + 1], lista[i]
+
+    return lista
 
 
 def bubble_sort(lista):
     """Bubble sort crescente, parando quando uma passagem nao faz troca.
     Devolve (lista_ordenada, comparacoes, trocas): conte toda comparacao
     entre vizinhos e somente as trocas que acontecerem."""
-    pass
+    comparacoes = 0
+    trocas = 0
+    for fim in range(N - 1, 0, -1):
+        trocou = False
+        for i in range(fim - 1):
+            comparacoes += 1
+            if lista[i] > lista[i + 1]:
+                lista[i], lista[i + 1] = lista[i + 1], lista[i]
+                trocas += 1
+                trocou = True
+        if not trocou:
+            break
+    return lista, comparacoes, trocas
 
 
 def selection_sort(lista):
     """Selection sort crescente. Devolve (lista_ordenada, comparacoes,
     trocas): conte cada comparacao entre candidatos e as trocas reais
     (nao conte a troca de um valor consigo mesmo)."""
-    pass
+    comparacoes = 0
+    trocas = 0
+    for i in range(n - 1):
+        menor = inicio
+        for i in range(inicio + 1, N):
+            comparacoes += 1
+            if lista[i] < lista[menor]:
+                menor = i
+        if menor != inicio:
+            lista[inicio], lista[menor] = lista[menor], lista[inicio]
+            trocas += 1
+    return lista, comparacoes, trocas
 
 
 def insertion_sort(lista):
